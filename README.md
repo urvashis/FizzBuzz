@@ -1,4 +1,4 @@
-# fizzbuzz-techtest 
+# FizzBuzz Techtest 
 
 To complete the challenge clone the following repo and implement the FizzBuzz Kata either using .NET or Node. We've provided some skeleton code to get you started but feel free to use your own.
 
