@@ -3,33 +3,41 @@ using System.Collections.Generic;
 
 namespace FizzBuzz
 {
-  class Program
-  {
-    static void Main(string[] args)
+    class Program
     {
-        Console.WriteLine("Please enter a number");
-        var userInput = Console.ReadLine();
-        int number;
-        if (Int32.TryParse(userInput, out number))
-            Console.WriteLine(GetFizzBuzz(number));
-        else
-            Console.WriteLine("Please enter a valid integer number (Int32)");
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Please enter a number (type exit if you want to leave at any time)");
+            var fizzBuzz = new FizzBuzz();
+            var userInput = Console.ReadLine();
+            while(userInput != "exit"){
+                Console.WriteLine(fizzBuzz.GetFizzBuzz(userInput));
+                userInput = Console.ReadLine();
+            }
+            
+        }
     }
-
-    public static string GetFizzBuzz(int number)
+    public class FizzBuzz
     {
-        var multipleOf3 = number % 3 == 0;
-        var multipleOf5 = number % 5 == 0;
+        public string GetFizzBuzz(string userInput)
+        {
+            int number;
+            if (Int32.TryParse(userInput, out number))
+            {
+                var multipleOf3 = number % 3 == 0;
+                var multipleOf5 = number % 5 == 0;
 
-        if (multipleOf3 && multipleOf5)
-            return "Fizzbuzz";
-        if (multipleOf3)
-            return "Fizz";
-        if (multipleOf5)
-            return "Buzz";
-        return number.ToString();
+                if (multipleOf3 && multipleOf5)
+                    return "Fizzbuzz";
+                if (multipleOf3)
+                    return "Fizz";
+                if (multipleOf5)
+                    return "Buzz";
+                return number.ToString();
+            }
+            return "Please enter a valid integer number (Int32)";
+        }
     }
-  }
 }
 
 
